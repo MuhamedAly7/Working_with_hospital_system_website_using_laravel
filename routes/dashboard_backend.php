@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\AdminController;
 use App\Http\Controllers\dashboard\DashboardController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
@@ -22,5 +23,13 @@ Route::get('/dashboard/user', function () {
     return view('dashboard.user.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard.user');
 
+
+Route::get('/dashboard/admin', function () {
+    return view('dashboard.admin.dashboard');
+})->middleware(['auth:admin', 'verified'])->name('dashboard.admin');
+
+
+Route::post('logout/admin', [AdminController::class, 'destroy'])
+                ->name('logout.admin');
 
 require __DIR__.'/auth.php';

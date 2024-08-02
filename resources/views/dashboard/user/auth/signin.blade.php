@@ -32,66 +32,74 @@
 											<div class="mb-5 d-flex"> <a href="{{ url('/' . $page='index') }}"><img src="{{URL::asset('dashboard/img/brand/favicon.png')}}" class="sign-favicon ht-40" alt="logo"></a><h1 class="main-logo1 ml-1 mr-0 my-auto tx-28">Va<span>le</span>x</h1></div>
 											<div class="card-sigin">
 												<div class="main-signup-header">
-													<h2>Welcome back!</h2>
-													
+													<h2>{{ trans('dashboard/login_trans.Welcome_back') }}!</h2>
+													@if ($errors->any())
+													    <div class="alert alert-danger">
+													        <ul>
+													            @foreach ($errors->all() as $error)
+													                <li>{{ $error }}</li>
+													            @endforeach
+													        </ul>
+													    </div>
+													@endif
 													<div class="form-group">
-														<label for="exampleFormControlSelect1">Sign in as</label>
+														<label for="exampleFormControlSelect1">{{ trans('dashboard/login_trans.select_from_menu') }}</label>
 														<select class="form-control" id="sectionChooser">
-															<option value="" selected disabled>select from menu</option>
-															<option value="user">patient</option>
-															<option value="admin">admin</option>
+															<option value="" selected disabled>{{ trans('dashboard/login_trans.sign_in_as') }}</option>
+															<option value="user">{{ trans('dashboard/login_trans.patient') }}</option>
+															<option value="admin">{{ trans('dashboard/login_trans.admin') }}</option>
 														</select>
 													</div>
 
 													{{-- User Form --}}
 													<div class="loginform" id="user">
-														<h5 class="font-weight-semibold mb-4">Sign in as patient.</h5>
+														<h5 class="font-weight-semibold mb-4">{{ trans('dashboard/login_trans.sign_in_as_patient') }}.</h5>
 														<form method="POST" action="{{ route('login.user') }}">
 															@csrf
 															<div class="form-group">
-																<label>Email</label> <input class="form-control" placeholder="Enter your email" type="email" name="email" :value="old('email')" required autofocus>
+																<label>{{ trans('dashboard/login_trans.email') }}</label> <input class="form-control" placeholder="{{ trans('dashboard/login_trans.enter_email') }}" type="email" name="email" :value="old('email')" required autofocus>
 															</div>
 															<div class="form-group">
-																<label>Password</label> <input class="form-control" placeholder="Enter your password" type="password" name="password" required autocomplete="current-password">
-															</div><button type="submit" class="btn btn-main-primary btn-block">Sign In</button>
+																<label>{{ trans('dashboard/login_trans.password') }}</label> <input class="form-control" placeholder="{{ trans('dashboard/login_trans.enter_password') }}" type="password" name="password" required autocomplete="current-password">
+															</div><button type="submit" class="btn btn-main-primary btn-block">{{ trans('dashboard/login_trans.sign_in') }}</button>
 															<div class="row row-xs">
 																<div class="col-sm-6">
-																	<button class="btn btn-block"><i class="fab fa-facebook-f"></i> Signup with Facebook</button>
+																	<button class="btn btn-block"><i class="fab fa-facebook-f"></i> {{ trans('dashboard/login_trans.sign_up_facebook') }}</button>
 																</div>
 																<div class="col-sm-6 mg-t-10 mg-sm-t-0">
-																	<button class="btn btn-info btn-block"><i class="fab fa-twitter"></i> Signup with Twitter</button>
+																	<button class="btn btn-info btn-block"><i class="fab fa-twitter"></i> {{ trans('dashboard/login_trans.sign_up_twitter') }}</button>
 																</div>
 															</div>
 														</form>
 														<div class="main-signin-footer mt-5">
-															<p><a href="">Forgot password?</a></p>
-															<p>Don't have an account? <a href="{{ url('/' . $page='signup') }}">Create an Account</a></p>
+															<p><a href="">{{ trans('dashboard/login_trans.forgot_password') }}</a></p>
+															<p>{{ trans('dashboard/login_trans.dont_have_account') }} <a href="{{ url('/' . $page='signup') }}">{{ trans('dashboard/login_trans.create_account') }}</a></p>
 														</div>
 													</div>
 													
 													{{-- Admin Form --}}
 													<div class="loginform" id="admin">
-														<h5 class="font-weight-semibold mb-4">Sign in as admin.</h5>
+														<h5 class="font-weight-semibold mb-4">{{ trans('dashboard/login_trans.sign_in_as_admin') }}.</h5>
 														<form method="POST" action="{{ route('login.admin') }}">
 															@csrf
 															<div class="form-group">
-																<label>Email</label> <input class="form-control" placeholder="Enter your email" type="email" name="email" :value="old('email')" required autofocus>
+																<label>{{ trans('dashboard/login_trans.email') }}</label> <input class="form-control" placeholder="{{ trans('dashboard/login_trans.enter_email') }}" type="email" name="email" :value="old('email')" required autofocus>
 															</div>
 															<div class="form-group">
-																<label>Password</label> <input class="form-control" placeholder="Enter your password" type="password" name="password" required autocomplete="current-password">
-															</div><button type="submit" class="btn btn-main-primary btn-block">Sign In</button>
+																<label>{{ trans('dashboard/login_trans.password') }}</label> <input class="form-control" placeholder="{{ trans('dashboard/login_trans.enter_password') }}" type="password" name="password" required autocomplete="current-password">
+															</div><button type="submit" class="btn btn-main-primary btn-block">{{ trans('dashboard/login_trans.sign_in') }}</button>
 															<div class="row row-xs">
 																<div class="col-sm-6">
-																	<button class="btn btn-block"><i class="fab fa-facebook-f"></i> Signup with Facebook</button>
+																	<button class="btn btn-block"><i class="fab fa-facebook-f"></i> {{ trans('dashboard/login_trans.sign_up_facebook') }}</button>
 																</div>
 																<div class="col-sm-6 mg-t-10 mg-sm-t-0">
-																	<button class="btn btn-info btn-block"><i class="fab fa-twitter"></i> Signup with Twitter</button>
+																	<button class="btn btn-info btn-block"><i class="fab fa-twitter"></i> {{ trans('dashboard/login_trans.sign_up_twitter') }}</button>
 																</div>
 															</div>
 														</form>
 														<div class="main-signin-footer mt-5">
-															<p><a href="">Forgot password?</a></p>
-															<p>Don't have an account? <a href="{{ url('/' . $page='signup') }}">Create an Account</a></p>
+															<p><a href="">{{ trans('dashboard/login_trans.forgot_password') }}</a></p>
+															<p>{{ trans('dashboard/login_trans.dont_have_account') }} <a href="{{ url('/' . $page='signup') }}">{{ trans('dashboard/login_trans.create_account') }}</a></p>
 														</div>
 													</div>
 												</div>

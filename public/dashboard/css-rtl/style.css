@@ -83,6 +83,7 @@ License        :   Licensed under ThemeForest License
 /* ######## FONT ######## */
 /* ############### FONTS IMPORT ############### */
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900");
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
 /* ######## BOOTSTRAP ######## */
 /*Color variables*/
 /*gray variables*/
@@ -2365,7 +2366,7 @@ a.badge-dark.focus {
   align-items: center;
   font-size: 10px;
   font-weight: 500;
-  font-family: "Roboto", sans-serif;
+  font-family: "Cairo", sans-serif;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: #949eb7;
